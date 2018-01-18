@@ -8,12 +8,12 @@
         "data": "64EC586E3A7A0EC2FBAA8D3D65045BEF0BE3E29EE71D8AC03E4E3D97D4C80A54",
         "type": "ed25519"
       },
-      "power": 1000,
+      "power": 10000,
       "name": "matt"
     },
     {
       "pub_key": {
-        "data": "4DE7147ED65EB6F7EB8134CE74DCE1A3D40B9E0E68D47E697D1237F839E389CB",
+        "data": "F2D5903DE9C31808D7E017A574EEDBB969AF72B3E935E95CF53BA83CB61D9542",
         "type": "ed25519"
       },
       "power": 1000,
