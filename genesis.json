@@ -18,6 +18,14 @@
       },
       "power": 1000,
       "name": "judd"
+    },
+    {
+      "pub_key": {
+        "data": "A2D5903DE9C31808D7E017A574EEDBB969AF72B3E935E95CF53BA83CB61D9542",
+        "type": "ed25519"
+      },
+      "power": 1,
+      "name": "nobody"
     }
   ]
 }
