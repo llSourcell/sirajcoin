@@ -8,23 +8,15 @@
         "data": "64EC586E3A7A0EC2FBAA8D3D65045BEF0BE3E29EE71D8AC03E4E3D97D4C80A54",
         "type": "ed25519"
       },
-      "power": 10000,
+      "power": 1000,
       "name": "matt"
-    },
-    {
-      "pub_key": {
-        "data": "681DC56A25CCFB11F4BE0DECC9DDE2E060F3030676B0004C524B089B40EE79DF",
-        "type": "ed25519"
-      },
-      "power": 100,
-      "name": "siraj"
     },
     {
       "pub_key": {
         "data": "4DE7147ED65EB6F7EB8134CE74DCE1A3D40B9E0E68D47E697D1237F839E389CB",
         "type": "ed25519"
       },
-      "power": 100,
+      "power": 1000,
       "name": "judd"
     }
   ]
