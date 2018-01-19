@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 let { createHash } = require('crypto')
 let coins = require('coins')
 let secp = require('secp256k1')
 let fs = require('fs')
-let Wallet = require('./wallet-methods.js')
+let Wallet = require('../client/wallet-methods.js')
 let argv = process.argv.slice(2)
 
 let privkeyContents = fs.readFileSync('privkey.json', 'utf8')
