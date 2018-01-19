@@ -24,10 +24,10 @@ module.exports = function (opts) {
 
       // first output pays grant to community member,
       // can be any amount and any address
-      let grantAmount = tx.outputs[0].amount
+      let grantAmount = tx.to[0].amount
 
       // second output must pay a percentage of grant to community treasury
-      let treasuryPayout = tx.outputs[1]
+      let treasuryPayout = tx.to[1]
       let expectedTreasuryAmount = Math.floor(grantAmount * treasuryPercent / 100)
       if (treasuryPayout.amount !== expectedTreasuryAmount) {
         throw Error(`Oracle must pay ${treasuryPercent}% of grant amount to treasury`)
@@ -40,7 +40,7 @@ module.exports = function (opts) {
       }
 
       // third output must pay a percentage of grant to founders
-      let foundersPayout = tx.outputs[2]
+      let foundersPayout = tx.to[2]
       let expectedFoundersAmount = Math.floor(grantAmount * foundersPercent / 100)
       if (foundersPayout.amount !== expectedFoundersAmount) {
         throw Error(`Oracle must pay ${foundersPercent}% of grant amount to founders`)
@@ -50,7 +50,7 @@ module.exports = function (opts) {
       }
 
       // grant txs should only have one input
-      if (tx.inputs.length !== 1) {
+      if (tx.from.length !== 1) {
         throw Error('Grant transactions must have exactly 1 input')
       }
 
