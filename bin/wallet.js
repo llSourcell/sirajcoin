@@ -10,8 +10,18 @@ let { connect } = require('lotion')
 let genesis = require('../genesis.json')
 let config = require('../config.json')
 
+if (argv.length === 0) {
+  console.log(`Usage:
+
+  sirajcoin balance
+    Gets your wallet balance and address
+
+  sirajcoin send <address> <amount>
+    Sends coins from your wallet to the given address`)
+  process.exit(1)
+}
+
 async function main() {
-  console.log(genesis)
   let client = await connect(null, { genesis, nodes: config.seeds })
   let privkeyContents = fs.readFileSync('privkey.json', 'utf8')
   let wallet = Wallet(JSON.parse(privkeyContents).priv_key.data)
@@ -23,6 +33,7 @@ async function main() {
       .send(recipientAddress, amountToSend)
       .then(function(res) {
         console.log('done', res.data.result)
+        process.exit()
       })
       .catch(err => console.error(err.stack))
   }
@@ -32,6 +43,7 @@ async function main() {
     wallet.getBalance().then(balance => {
       console.log('your address: ' + wallet.address)
       console.log('your balance: ' + balance)
+      process.exit()
     })
   }
 }
