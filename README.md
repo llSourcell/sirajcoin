@@ -7,7 +7,7 @@ Sirajcoin is an experiment with two goals:
 - add rocket fuel to the growth of our community
 - fund AI research in a decentralized way!
 
-This is still very experimental code, and it may be insecure. **Please do not pay real money for Sirajcoin.**
+Note: this is still very experimental code, and it may be insecure. *Please do not pay real money for Sirajcoin.*
 
 ## Installing the Sirajcoin wallet
 
@@ -44,6 +44,9 @@ $ sirajcoin send <recipient_address> <amount>
 In short, Sirajcoin is a [proof-of-stake] cryptocurrency built on top of [Tendermint consensus] using a library called [Lotion], secured by a hand-picked set of community validators.
 
 You can learn more about the technical details and economic design of Sirajcoin in the [Sirajcoin whitepaper].
+
+## License
+MIT
 
 [proof-of-stake]: https://en.wikipedia.org/wiki/Proof-of-stake
 [Tendermint consensus]: https://tendermint.readthedocs.io/en/master/introduction.html
