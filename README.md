@@ -11,13 +11,15 @@ Note: this is still very experimental code, and it may be insecure. *Please do n
 
 ## Installing the Sirajcoin wallet
 
-To send and receive Sirajcoin, you'll need a mac or linux machine and Node.js v7.6.0 or later.
+To send and receive Sirajcoin, you'll need a mac or linux machine and **Node.js v7.6.0** or later.
 
 Then in your terminal, run:
 
 ```bash
 $ npm i -g sirajcoin
 ```
+
+If you're on Windows and want to use Sirajcoin, consider spinning up a [Digital Ocean](https://digitalocean.com) droplet and using the wallet via SSH.
 
 ## Getting your first Sirajcoin
 
