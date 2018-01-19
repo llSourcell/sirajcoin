@@ -34,7 +34,8 @@ async function main() {
   try {
     // load existing key
     let privkeyContents = fs.readFileSync(keyPath, 'utf8')
-    privkey = JSON.parse(privkeyContents)[0].private
+    let privkeyHex = JSON.parse(privkeyContents)[0].private
+    privkey = Buffer.from(privkeyHex, 'hex')
 
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
@@ -51,7 +52,9 @@ async function main() {
 
   let timeout = setTimeout(() => console.log('Connecting...'), 2000)
 
-  let client = await connect(null, { genesis, nodes: config.seeds })
+  let nodes = config.peers.map((addr) => `ws://${addr}:46657`)
+
+  let client = await connect(null, { genesis, nodes })
   let wallet = Wallet(privkey, client)
 
   // don't print "Connecting..." if we connect in less than 2s
