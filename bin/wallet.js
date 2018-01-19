@@ -7,11 +7,12 @@ let fs = require('fs')
 let Wallet = require('../client/wallet-methods.js')
 let argv = process.argv.slice(2)
 let { connect } = require('lotion')
+let genesis = require('../genesis.json')
+let config = require('../config.json')
 
 async function main() {
-  let genesis = require('../genesis.json')
   console.log(genesis)
-  let client = await connect(null, { genesis })
+  let client = await connect(null, { genesis, nodes: config.seeds })
   let privkeyContents = fs.readFileSync('privkey.json', 'utf8')
   let wallet = Wallet(JSON.parse(privkeyContents).priv_key.data)
   if (argv.length === 3) {
