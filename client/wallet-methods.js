@@ -1,15 +1,16 @@
 let secp = require('secp256k1')
 let coins = require('coins')
-let { createHash, randomBytes } = require('crypto')
+let { randomBytes } = require('crypto')
 
-module.exports = function(seed, client) {
-  if (!seed) {
-    seed = randomBytes(32).toString('hex')
+module.exports = function(priv, client) {
+  if (!Buffer.isBuffer(priv) || priv.length !== 32) {
+    throw Error('Private key must be a 32-byte buffer')
   }
+
   let creds = {}
-  creds.priv = createHash('sha256').update(seed).digest()
+  creds.priv = priv
   creds.pub = secp.publicKeyCreate(creds.priv)
-  creds.address = coins.ed25519Account.getAddress({ pubkey: creds.pub })
+  creds.address = coins.secp256k1Account.getAddress({ pubkey: creds.pub })
 
   return {
     address: creds.address,

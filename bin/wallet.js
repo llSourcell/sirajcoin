@@ -1,14 +1,20 @@
 #!/usr/bin/env node
 
-let { createHash } = require('crypto')
-let coins = require('coins')
-let secp = require('secp256k1')
+// TODO: make this better! if you're reading this,
+// you should improve the wallet and send a pull request!
+
+let { createHash, randomBytes } = require('crypto')
 let fs = require('fs')
 let Wallet = require('../client/wallet-methods.js')
-let argv = process.argv.slice(2)
 let { connect } = require('lotion')
+let mkdirp = require('mkdirp').sync
+let { dirname } = require('path')
 let genesis = require('../genesis.json')
 let config = require('../config.json')
+
+const keyPath = '~/.sirajcoin/keys.json'
+
+let argv = process.argv.slice(2)
 
 if (argv.length === 0) {
   console.log(`Usage:
@@ -22,9 +28,35 @@ if (argv.length === 0) {
 }
 
 async function main() {
+  let privkey
+
+  try {
+    // load existing key
+    let privkeyContents = fs.readFileSync(keyPath, 'utf8')
+    privkey = JSON.parse(privkeyContents)[0].private
+
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw err
+
+    // no key, generate one
+    let keys = [ { private: randomBytes(32).toString('hex') } ]
+    let keysJson = JSON.stringify(keys, null, '  ')
+    mkdirp(dirname(keyPath))
+    fs.writeFileSync(keyPath, keysJson, 'utf8')
+    privkey = keys[0].private
+
+    console.log(`Generated private key, saving to "${keyPath}"`)
+  }
+
+  let timeout = setTimeout(() => console.log('Connecting...'), 2000)
+
   let client = await connect(null, { genesis, nodes: config.seeds })
-  let privkeyContents = fs.readFileSync('privkey.json', 'utf8')
-  let wallet = Wallet(JSON.parse(privkeyContents).priv_key.data)
+  let wallet = Wallet(privkey, client)
+
+  // don't print "Connecting..." if we connect in less than 2s
+  clearTimeout(timeout)
+
+  // send
   if (argv.length === 3) {
     let recipientAddress = argv[1]
     let amountToSend = Number(argv[2])
@@ -48,4 +80,4 @@ async function main() {
   }
 }
 
-main()
+main().catch((err) => console.error(err.stack))
