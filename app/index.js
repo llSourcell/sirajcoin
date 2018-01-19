@@ -19,7 +19,7 @@ module.exports = function (opts = {}) {
   app.use(coins({
     handlers: {
       communityGrowth: CommunityGrowth({
-        oraclePubkey: '031ae24d50f453b0f2f961382985bf527093d725f45bcc12c9a82c53e6ae990065',
+        oraclePubkey: '03659ade07edb05a6474f0278bdc9fb706cd607b17c6c90aa7ef9a21e0b3606f88',
         foundersAddress: 'siraj',
         treasuryPercent: 15,
         foundersPercent: 10
