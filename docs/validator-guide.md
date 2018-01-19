@@ -33,3 +33,26 @@ and check that it worked with:
 ```bash
 $ node -v
 ```
+
+## 3. Set up validator home directory
+
+```bash
+$ mkdir ~/validator
+$ cd ~/validator
+```
+
+Remember `privkey.json` from step 0? Put its contents in `~/validator/privkey.json`.
+
+## 5. Install Sirajcoin on the server
+
+```bash
+$ npm i -g sirajcoin
+```
+
+## 6. Run your validator
+
+```bash
+$ sirajcoin validator
+```
+
+Woo, you're validating the Sirajcoin network and getting paid Sirajcoin for it! Now keep it online.
