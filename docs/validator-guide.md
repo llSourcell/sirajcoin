@@ -51,6 +51,8 @@ $ npm i -g sirajcoin
 
 ## 6. Run your validator
 
+From inside `~/validator`, run: 
+
 ```bash
 $ sirajcoin validator
 ```
