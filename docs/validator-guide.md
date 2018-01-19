@@ -52,10 +52,10 @@ $ npm i -g sirajcoin
 
 ## 6. Run your validator
 
-From inside `~/validator`, run: 
+From inside `~/validator`, run:
 
 ```bash
-$ sirajcoin validator
+$ sirajcoin-node
 ```
 
 Woo, you're validating the Sirajcoin network and getting paid Sirajcoin for it! Now keep it online.
