@@ -8,11 +8,12 @@ let fs = require('fs')
 let Wallet = require('../client/wallet-methods.js')
 let { connect } = require('lotion')
 let mkdirp = require('mkdirp').sync
-let { dirname } = require('path')
+let { dirname, join } = require('path')
 let genesis = require('../genesis.json')
 let config = require('../config.json')
 
-const keyPath = '~/.sirajcoin/keys.json'
+const HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE
+const keyPath = join(HOME, '.sirajcoin/keys.json')
 
 let argv = process.argv.slice(2)
 
