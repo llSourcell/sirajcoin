@@ -1,8 +1,16 @@
 {
-  "genesis_time": "2018-01-18T02:31:37Z",
+  "genesis_time": "2018-01-19T02:31:37Z",
   "chain_id": "sirajcoin",
   "app_hash": "",
   "validators": [
+    {
+      "pub_key": {
+        "data": "681DC56A25CCFB11F4BE0DECC9DDE2E060F3030676B0004C524B089B40EE79DF",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "siraj"
+    },
     {
       "pub_key": {
         "data": "64EC586E3A7A0EC2FBAA8D3D65045BEF0BE3E29EE71D8AC03E4E3D97D4C80A54",
@@ -10,6 +18,46 @@
       },
       "power": 10000,
       "name": "matt"
+    },
+    {
+      "pub_key": {
+        "data": "4DE7147ED65EB6F7EB8134CE74DCE1A3D40B9E0E68D47E697D1237F839E389CB",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "judd"
+    },
+    {
+      "pub_key": {
+        "data": "91AC74EE6B3AB326170A83A98A7748268E4D379FB4A0189A7B1FE57558D92A07",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "chad"
+    },
+    {
+      "pub_key": {
+        "data": "DCB51BD85E9BF20BEEE4BF709B2B30DD73C7DEE9070AE429B2BD00170F91250D",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "rohan"
+    },
+    {
+      "pub_key": {
+        "data": "6078EFBD3DCBEB95795F770730D12B2E333D488B4D6069D95E473188D136830E",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "rahul"
+    },
+    {
+      "pub_key": {
+        "data": "20B5C17B9A048A6B976F3D73991A98FBC1D5543DAC0D1C0ED74367C73D5D0CF3",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "alberto"
     }
   ]
 }
