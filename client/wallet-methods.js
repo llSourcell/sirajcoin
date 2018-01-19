@@ -10,8 +10,7 @@ module.exports = function(seed) {
   let creds = {}
   creds.priv = createHash('sha256').update(seed).digest()
   creds.pub = secp.publicKeyCreate(creds.priv)
-  console.log(creds.pub.toString('hex'))
-  creds.address = coins.pubkeyCoin.getAddress({ pubkey: creds.pub })
+  creds.address = coins.ed25519Account.getAddress({ pubkey: creds.pub })
 
   return {
     address: creds.address,
@@ -43,33 +42,6 @@ module.exports = function(seed) {
       let sigHash = coins.getSigHash(tx)
       tx.from.signature = secp.sign(sigHash, creds.priv).signature
       return await sendTx(tx)
-    },
-    grant (id, address, amount) {
-      let tx = {
-        from: {
-          type: 'communityGrowth',
-          amount: 12.5 * 1e8,
-          id
-        },
-        to: [
-          {
-            address,
-            amount: 10 * 1e8
-          },
-          {
-            address: 'treasury',
-            amount: 1.5 * 1e8
-          },
-          {
-            address: 'siraj',
-            amount: 1 * 1e8
-          }
-        ]
-      }
-
-      let sigHash = coins.getSigHash(tx)
-      tx.from.signature = secp.sign(sigHash, creds.priv).signature
-      return sendTx(tx)
     }
   }
 }
