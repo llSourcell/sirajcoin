@@ -45,7 +45,19 @@ In short, Sirajcoin is a [proof-of-stake] cryptocurrency built on top of [Tender
 
 You can learn more about the technical details and economic design of Sirajcoin in the [Sirajcoin whitepaper].
 
+## Credits
+
+Sirajcoin is developed by:
+
+- [Siraj Raval](https://github.com/llsourcell)
+- [Matt Bell](https://github.com/mappum)
+- [Chad Lohrli](https://github.com/chadlohrli)
+- [Judd Keppel](https://github.com/keppel)
+
+and you are encouraged to contribute ideas or pull requests!
+
 ## License
+
 MIT
 
 [proof-of-stake]: https://en.wikipedia.org/wiki/Proof-of-stake
