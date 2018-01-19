@@ -1,9 +1,8 @@
 let secp = require('secp256k1')
 let coins = require('coins')
-let axios = require('axios')
 let { createHash, randomBytes } = require('crypto')
 
-module.exports = function(seed) {
+module.exports = function(seed, client) {
   if (!seed) {
     seed = randomBytes(32).toString('hex')
   }
@@ -17,7 +16,7 @@ module.exports = function(seed) {
     priv: creds.priv,
     pub: creds.pub,
     getBalance: async function() {
-      let state = await getState()
+      let state = await client.getState()
       if (!state.accounts[creds.address]) {
         return 0
       }
@@ -25,7 +24,7 @@ module.exports = function(seed) {
       return balance
     },
     send: async function(address, amount) {
-      let state = await getState()
+      let state = await client.getState()
       let feeAmount = 0.01 * 1e8
       let tx = {
         from: {
@@ -33,23 +32,12 @@ module.exports = function(seed) {
           sequence: state.accounts[creds.address].sequence,
           pubkey: creds.pub
         },
-        to: [
-          { type: 'fee', amount: feeAmount },
-          { amount, address }
-        ]
+        to: [{ type: 'fee', amount: feeAmount }, { amount, address }]
       }
 
       let sigHash = coins.getSigHash(tx)
       tx.from.signature = secp.sign(sigHash, creds.priv).signature
-      return await sendTx(tx)
+      return await client.send(tx)
     }
   }
-}
-
-function sendTx(tx) {
-  return axios.post('http://localhost:3000/txs', tx)
-}
-
-function getState() {
-  return axios.get('http://localhost:3000/state').then(res => res.data)
 }
