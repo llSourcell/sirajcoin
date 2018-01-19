@@ -65,6 +65,6 @@ MIT
 [Lotion]: https://github.com/keppel/lotion
 
 [subscribe]: https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A
-[video]: https://www.youtube.com/fix-this-link
+[this video]: https://www.youtube.com/fix-this-link
 [oracle]: https://blockchainhub.net/blockchain-oracles/
 [Sirajcoin whitepaper]: https://sirajcoin.io/whitepaper
