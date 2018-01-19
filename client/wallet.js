@@ -23,13 +23,3 @@ if (argv.length === 1 && argv[0] === 'balance') {
     console.log('your balance: ' + balance)
   })
 }
-
-// get balance
-if (argv[0] === 'grant') {
-  let [ id, address, amount ] = argv.slice(1)
-  wallet.grant(id, address, amount)
-  .then((res) => console.log(res.data.result))
-  .catch((err) => {
-    console.error(err.stack)
-  })
-}

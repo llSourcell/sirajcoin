@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "sirajcoin": "bin/sirajcoin.js"
+    "sirajcoin": "bin/wallet.js",
+    "sirajcoin-node": "bin/node.js"
   },
   "repository": {
     "type": "git",
