@@ -5,7 +5,7 @@ let runNode = require('../app')
 console.log('Starting node...')
 
 runNode({
-  genesis: 'genesis.json',
+  genesis: require.resolve('../genesis.json'),
   keys: 'privkey.json',
   lotionPort: 3000,
   logTendermint: process.env.LOG_TM
