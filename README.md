@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Sirajcoin
 
 Hello world, it's Sirajcoin!
@@ -54,6 +53,3 @@ You can learn more about the technical details and economic design of Sirajcoin 
 [video]: https://www.youtube.com/fix-this-link
 [oracle]: https://blockchainhub.net/blockchain-oracles/
 [Sirajcoin whitepaper]: https://sirajcoin.io/whitepaper
-=======
-# sirajcoin
->>>>>>> master
