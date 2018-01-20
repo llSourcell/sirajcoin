@@ -20,7 +20,8 @@ Then in your terminal, run:
 ```bash
 $ npm i -g sirajcoin
 ```
-(You must run this as a non-root user)
+
+*(You must run this as a non-root user)* If you're getting `EACCES: permission denied` errors, read this to fix them: https://docs.npmjs.com/getting-started/fixing-npm-permissions
 
 If you're on Windows and want to use Sirajcoin, consider spinning up a [Digital Ocean](https://digitalocean.com) droplet and using the wallet via SSH.
 
