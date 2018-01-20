@@ -1,0 +1,4 @@
+sirajcoin:
+  build: .
+  volumes:
+    - ./.sirajcoin/:/home/node/.sirajcoin
