@@ -1,0 +1,28 @@
+{
+  "name": "sirajcoin",
+  "version": "1.0.6",
+  "description": "A cryptocurrency for Siraj Raval's Youtube community",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "sirajcoin": "bin/wallet.js",
+    "sirajcoin-node": "bin/node.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llSourcell/sirajcoin.git"
+  },
+  "keywords": [],
+  "author": "Siraj Raval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/llSourcell/sirajcoin/issues"
+  },
+  "homepage": "https://github.com/llSourcell/sirajcoin#readme",
+  "dependencies": {
+    "coins": "^2.2.3",
+    "lotion": "^0.1.10",
+    "mkdirp": "^0.5.1"
+  }
+}

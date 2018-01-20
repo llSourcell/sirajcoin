@@ -1,0 +1,23 @@
+{
+  "genesis_time": "2018-01-20T02:31:37Z",
+  "chain_id": "sirajcoin-0",
+  "app_hash": "",
+  "validators": [
+    {
+      "pub_key": {
+        "data": "F220F84D3543AD077FF8CD77D2F1A815B142D12359D0EA91CC9F16A610B15F28",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "matt"
+    },
+    {
+      "pub_key": {
+        "data": "F2D5903DE9C31808D7E017A574EEDBB969AF72B3E935E95CF53BA83CB61D9542",
+        "type": "ed25519"
+      },
+      "power": 10000,
+      "name": "judd"
+    }
+  ]
+}
