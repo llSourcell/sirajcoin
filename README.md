@@ -18,10 +18,18 @@ Windows support should come soon. If you'd like to help with that, many Windows 
 Then in your terminal, run:
 
 ```bash
-$ npm i -g sirajcoin
+npm i -g sirajcoin
 ```
 
-*(You must run this as a non-root user)* If you're getting `EACCES: permission denied` errors, read this to fix them: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+If you're having trouble installing, try installing it locally:
+
+```bash
+mkdir -p ~/.sirajcoin && \
+cd ~/.sirajcoin && \
+echo {} > package.json && \
+npm i sirajcoin && \
+export PATH=$PATH:$PWD/node_modules/.bin
+```
 
 If you're on Windows and want to use Sirajcoin, consider spinning up a [Digital Ocean](https://digitalocean.com) droplet and using the wallet via SSH.
 
