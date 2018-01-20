@@ -45,7 +45,7 @@ async function main() {
     let keysJson = JSON.stringify(keys, null, '  ')
     mkdirp(dirname(keyPath))
     fs.writeFileSync(keyPath, keysJson, 'utf8')
-    privkey = keys[0].private
+    privkey = Buffer.from(keys[0].private, 'hex')
 
     console.log(`Generated private key, saving to "${keyPath}"`)
   }
