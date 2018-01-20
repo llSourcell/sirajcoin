@@ -63,24 +63,20 @@ async function main() {
   // send
   if (argv.length === 3) {
     let recipientAddress = argv[1]
-    let amountToSend = Number(argv[2])
+    let amountToSend = Number(argv[2]) * 1e8
 
-    wallet
+    let res = await wallet
       .send(recipientAddress, amountToSend)
-      .then(function(res) {
-        console.log('done', res)
-        process.exit()
-      })
-      .catch(err => console.error(err.stack))
+    console.log('done', res)
+    process.exit()
   }
 
   // get balance
   if (argv.length === 1 && argv[0] === 'balance') {
-    wallet.getBalance().then(balance => {
-      console.log('your address: ' + wallet.address)
-      console.log('your balance: ' + balance)
-      process.exit()
-    })
+    let balance = await wallet.getBalance()
+    console.log('your address: ' + wallet.address)
+    console.log(`your balance: ${balance / 1e8} SRJ`)
+    process.exit()
   }
 }
 
