@@ -1,6 +1,7 @@
 const secp = require('secp256k1') // eslint-disable-line import/no-extraneous-dependencies
 const coins = require('coins')
-const { randomBytes } = require('crypto')
+// randomBytes is not being used at the moment
+// const { randomBytes } = require('crypto')
 
 module.exports = (priv, client) => {
   if (!Buffer.isBuffer(priv) || priv.length !== 32) {

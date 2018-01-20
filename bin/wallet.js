@@ -3,7 +3,8 @@
 // TODO: make this better! if you're reading this,
 // you should improve the wallet and send a pull request!
 
-const { createHash, randomBytes } = require('crypto')
+// createHash is not being used at the moment
+const { /* createHash, */ randomBytes } = require('crypto')
 const fs = require('fs')
 const Wallet = require('../client/wallet-methods.js')
 const { connect } = require('lotion')
