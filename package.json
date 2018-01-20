@@ -3,7 +3,7 @@
   "version": "1.0.6",
   "description": "A cryptocurrency for Siraj Raval's Youtube community",
   "scripts": {
-    "start": "electron wallet",
+    "start": "webpack-dev-server && electron wallet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
@@ -22,11 +22,20 @@
   },
   "homepage": "https://github.com/llSourcell/sirajcoin#readme",
   "dependencies": {
+    "babel-preset-react": "^6.24.1",
     "coins": "^2.2.3",
     "electron": "^1.7.10",
     "lotion": "^0.1.10",
     "mkdirp": "^0.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0",
+    "webpack-merge": "^4.1.1"
   }
 }
