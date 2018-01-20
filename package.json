@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/llSourcell/sirajcoin#readme",
   "dependencies": {
-    "coins": "^2.2.3",
-    "lotion": "^0.1.10",
+    "coins": "^2.2.4",
+    "lotion": "^0.1.11",
     "mkdirp": "^0.5.1"
   }
 }
