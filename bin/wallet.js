@@ -68,7 +68,7 @@ async function main() {
     wallet
       .send(recipientAddress, amountToSend)
       .then(function(res) {
-        console.log('done', res.data.result)
+        console.log('done', res)
         process.exit()
       })
       .catch(err => console.error(err.stack))
