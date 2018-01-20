@@ -3,7 +3,8 @@
   "version": "1.0.6",
   "description": "A cryptocurrency for Siraj Raval's Youtube community",
   "scripts": {
-    "start": "webpack-dev-server && electron wallet",
+    "start": "webpack-dev-server",
+    "start:wallet": "electron wallet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
