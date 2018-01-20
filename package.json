@@ -1,7 +1,10 @@
 {
   "name": "sirajcoin",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A cryptocurrency for Siraj Raval's Youtube community",
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
