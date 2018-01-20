@@ -3,6 +3,7 @@
 // TODO: make this better! if you're reading this,
 // you should improve the wallet and send a pull request!
 
+
 // createHash is not being used at the moment
 const { /* createHash, */ randomBytes } = require('crypto')
 const fs = require('fs')
