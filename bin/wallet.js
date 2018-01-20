@@ -3,19 +3,19 @@
 // TODO: make this better! if you're reading this,
 // you should improve the wallet and send a pull request!
 
-let { createHash, randomBytes } = require('crypto')
-let fs = require('fs')
-let Wallet = require('../client/wallet-methods.js')
-let { connect } = require('lotion')
-let mkdirp = require('mkdirp').sync
-let { dirname, join } = require('path')
-let genesis = require('../genesis.json')
-let config = require('../config.js')
+const { createHash, randomBytes } = require('crypto')
+const fs = require('fs')
+const Wallet = require('../client/wallet-methods.js')
+const { connect } = require('lotion')
+const mkdirp = require('mkdirp').sync
+const { dirname, join } = require('path')
+const genesis = require('../genesis.json')
+const config = require('../config.js')
 
 const HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE
 const keyPath = join(HOME, '.sirajcoin/keys.json')
 
-let argv = process.argv.slice(2)
+const argv = process.argv.slice(2)
 
 if (argv.length === 0) {
   console.log(`Usage:
@@ -33,16 +33,15 @@ async function main() {
 
   try {
     // load existing key
-    let privkeyContents = fs.readFileSync(keyPath, 'utf8')
-    let privkeyHex = JSON.parse(privkeyContents)[0].private
+    const privkeyContents = fs.readFileSync(keyPath, 'utf8')
+    const privkeyHex = JSON.parse(privkeyContents)[0].private
     privkey = Buffer.from(privkeyHex, 'hex')
-
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
 
     // no key, generate one
-    let keys = [ { private: randomBytes(32).toString('hex') } ]
-    let keysJson = JSON.stringify(keys, null, '  ')
+    const keys = [{ private: randomBytes(32).toString('hex') }]
+    const keysJson = JSON.stringify(keys, null, '  ')
     mkdirp(dirname(keyPath))
     fs.writeFileSync(keyPath, keysJson, 'utf8')
     privkey = keys[0].private
@@ -50,22 +49,22 @@ async function main() {
     console.log(`Generated private key, saving to "${keyPath}"`)
   }
 
-  let timeout = setTimeout(() => console.log('Connecting...'), 2000)
+  const timeout = setTimeout(() => console.log('Connecting...'), 2000)
 
-  let nodes = config.peers.map((addr) => `ws://${addr}:46657`)
+  const nodes = config.peers.map(addr => `ws://${addr}:46657`)
 
-  let client = await connect(null, { genesis, nodes })
-  let wallet = Wallet(privkey, client)
+  const client = await connect(null, { genesis, nodes })
+  const wallet = Wallet(privkey, client)
 
   // don't print "Connecting..." if we connect in less than 2s
   clearTimeout(timeout)
 
   // send
   if (argv.length === 3) {
-    let recipientAddress = argv[1]
-    let amountToSend = Number(argv[2]) * 1e8
+    const recipientAddress = argv[1]
+    const amountToSend = Number(argv[2]) * 1e8
 
-    let res = await wallet
+    const res = await wallet
       .send(recipientAddress, amountToSend)
     console.log('done', res)
     process.exit()
@@ -84,10 +83,10 @@ async function main() {
         throw err
       }
     }
-    console.log('your address: ' + wallet.address)
+    console.log(`your address: ${wallet.address}`)
     console.log(`your balance: ${balance / 1e8} SRJ`)
     process.exit()
   }
 }
 
-main().catch((err) => console.error(err.stack))
+main().catch(err => console.error(err.stack))
