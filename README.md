@@ -33,6 +33,37 @@ export PATH=$PATH:$PWD/node_modules/.bin
 
 If you're on Windows and want to use Sirajcoin, consider spinning up a [Digital Ocean](https://digitalocean.com) droplet and using the wallet via SSH.
 
+## Setting up everything from a newly installed ubuntu 17.10
+
+Download latest ubuntu, after it has been installed 
+run the following commands in order:
+
+```
+sudo apt-get update
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install nodejs
+npm install graceful-fs
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+gedit ~/.profile
+```
+Add following line at the end in .profile file
+```
+export PATH=~/.npm-global/bin:$PATH
+```
+Save and close .profile file
+
+```
+source ~/.profile
+sudo apt-get install build-essential
+npm i -g sirajcoin
+sirajcoin balance
+sirajcoin balance
+```
+
+The double sirajcoin balance is due to a bug, will be fixed!
+
 ## Getting your first Sirajcoin
 
 First, you'll need to generate a Sirajcoin address.
