@@ -1,8 +1,7 @@
-import React from "react";
-import { render } from "react-dom";
-import WalletApp from "./WalletApp";
+const { h, render } = require("preact");
+const WalletApp = require("./WalletApp");
 
 const node = document.createElement("div");
 document.body.appendChild(node);
 
-render(<WalletApp />, node);
+render(h(WalletApp, {}), node);

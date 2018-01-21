@@ -39,21 +39,21 @@ class SirajcoinWallet {
 
   createWindow() {
     // Create the browser window.
-    const window = new BrowserWindow({ width: 800, height: 600 });
+    const window = new BrowserWindow({ width: 400, height: 600 });
+    window.setTitle("Sirajcoin Wallet");
+    window.loadURL(
+      url.format({
+        pathname: path.join(__dirname, "index.html"),
+        protocol: "file:",
+        slashes: true
+      })
+    );
+    //window.loadURL("http://localhost:8080");
 
-    if (process.env.NODE_ENV === "production") {
-      winow.loadURL(
-        url.format({
-          pathname: path.join(__dirname, "index.html"),
-          protocol: "file:",
-          slashes: true
-        })
-      );
-    } else {
-      window.loadURL("http://localhost:3000");
-      // Open the DevTools.
-      window.webContents.openDevTools();
+    if (process.env.NODE_ENV !== "production") {
+      //window.webContents.openDevTools();
     }
+
     return window;
   }
 }
