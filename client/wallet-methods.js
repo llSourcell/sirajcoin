@@ -1,13 +1,14 @@
-let secp = require('secp256k1')
-let coins = require('coins')
-let { randomBytes } = require('crypto')
+const secp = require('secp256k1') // eslint-disable-line import/no-extraneous-dependencies
+const coins = require('coins')
+// randomBytes is not being used at the moment
+// const { randomBytes } = require('crypto')
 
-module.exports = function(priv, client) {
+module.exports = (priv, client) => {
   if (!Buffer.isBuffer(priv) || priv.length !== 32) {
     throw Error('Private key must be a 32-byte buffer')
   }
 
-  let creds = {}
+  const creds = {}
   creds.priv = priv
   creds.pub = secp.publicKeyCreate(creds.priv)
   creds.address = coins.secp256k1Account.getAddress({ pubkey: creds.pub })
@@ -16,29 +17,32 @@ module.exports = function(priv, client) {
     address: creds.address,
     priv: creds.priv,
     pub: creds.pub,
-    getBalance: async function() {
-      let state = await client.getState()
+    async getBalance() {
+      const state = await client.getState()
       if (!state.accounts[creds.address]) {
         return 0
       }
-      let balance = state.accounts[creds.address].balance
+      // const balance = state.accounts[creds.address].balance
+      const { balance } = state.accounts[creds.address]
       return balance
     },
-    send: async function(address, amount) {
-      let state = await client.getState()
-      let feeAmount = 0.01 * 1e8
-      let tx = {
+    async send(address, amount) {
+      const state = await client.getState()
+      const feeAmount = 0.01 * 1e8
+      const tx = {
         from: {
           amount: amount + feeAmount,
           sequence: state.accounts[creds.address].sequence,
-          pubkey: creds.pub
+          pubkey: creds.pub,
         },
-        to: [{ type: 'fee', amount: feeAmount }, { amount, address }]
+        to: [{ type: 'fee', amount: feeAmount }, { amount, address }],
       }
 
-      let sigHash = coins.getSigHash(tx)
+      const sigHash = coins.getSigHash(tx)
       tx.from.signature = secp.sign(sigHash, creds.priv).signature
+      // refactor, remove redundant return await
+      // eslint-disable-next-line no-return-await
       return await client.send(tx)
-    }
+    },
   }
 }

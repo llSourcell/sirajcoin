@@ -27,5 +27,9 @@
     "coins": "^2.2.4",
     "lotion": "^0.1.11",
     "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   }
 }
