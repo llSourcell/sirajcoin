@@ -33,10 +33,12 @@ function createWindow () {
        {
          label: 'Menu',
          submenu:[
-           {label: 'exit',
-          click(){
-            app.quit()
-          }}
+           {
+             label: 'exit',
+             click(){
+             app.quit()
+             }
+           }
          ]
         }
 
