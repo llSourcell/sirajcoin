@@ -5,8 +5,9 @@
   "engines": {
     "node": ">=8"
   },
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "bin": {
     "sirajcoin": "bin/wallet.js",
@@ -14,17 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/llSourcell/sirajcoin.git"
+    "url": "git+https://github.com/techgeeksid/sirajcoin.git"
   },
   "keywords": [],
   "author": "Siraj Raval",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/llSourcell/sirajcoin/issues"
+    "url": "https://github.com/techgeeksid/sirajcoin/issues"
   },
-  "homepage": "https://github.com/llSourcell/sirajcoin#readme",
+  "homepage": "https://github.com/techgeeksid/sirajcoin#readme",
   "dependencies": {
     "coins": "^2.2.4",
+    "electron": "^1.7.10",
     "lotion": "^0.1.11",
     "mkdirp": "^0.5.1"
   }
