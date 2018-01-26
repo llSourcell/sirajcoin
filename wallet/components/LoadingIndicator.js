@@ -1,9 +1,10 @@
 const { h } = require("preact");
 
-function LoadingIndicator({ color, backgroundColor }) {
+function LoadingIndicator({ color, style, backgroundColor }) {
   return h(
     "svg",
     {
+      style,
       version: "1.1",
       width: "40px",
       height: "40px",
