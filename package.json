@@ -1,11 +1,13 @@
 {
   "name": "sirajcoin",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "A cryptocurrency for Siraj Raval's Youtube community",
   "engines": {
     "node": ">=8"
   },
   "scripts": {
+    "rebuild": "electron-rebuild",
+    "start:wallet": "electron wallet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
@@ -24,8 +26,13 @@
   },
   "homepage": "https://github.com/llSourcell/sirajcoin#readme",
   "dependencies": {
-    "coins": "^2.2.4",
+    "coins": "2.2.6",
+    "electron": "^1.7.10",
     "lotion": "^0.1.11",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "preact": "^8.2.7"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.7.3"
   }
 }
